@@ -1,6 +1,14 @@
-<!-- components/sidebar.html -->
-<div class="d-flex flex-column p-3 bg-light">
-    <h4>Sidebar</h4>
+<div class="d-flex flex-column p-3 bg-light" id="sidebar">
+    <button class="btn btn-primary d-lg-none mb-3" id="toggleSidebar">
+        ☰ Menu
+    </button>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="mb-0">Menu</h4>
+        <div>
+            <input type="checkbox" id="themeToggle" class="form-check-input">
+            <label for="themeToggle" class="form-check-label">Dark Mode</label>
+        </div>
+    </div>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
             <a href="#" class="nav-link active">
