@@ -1,0 +1,2 @@
+Django==5.1
+nanoid==2.0.0
