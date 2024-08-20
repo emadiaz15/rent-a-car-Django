@@ -14,5 +14,5 @@ DATABASES = {
 
 # Development static files settings
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'management/static'),
+    os.path.join(BASE_DIR, 'service/static'),
 ]

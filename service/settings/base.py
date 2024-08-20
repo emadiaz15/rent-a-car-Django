@@ -12,8 +12,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-APPS_DIR = BASE_DIR / "apps"
-
 # Application definition
 
 BASE_APPS = [
@@ -45,7 +43,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'management.urls'
+ROOT_URLCONF = 'service.urls'
 
 TEMPLATES = [
     {
@@ -63,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'management.wsgi.application'
+WSGI_APPLICATION = 'service.wsgi.application'
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -89,5 +87,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = ["service/static"]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
