@@ -6,4 +6,4 @@ def home_view(request):
         'theme': theme,
         # otros contextos
     }
-    return render(request, 'home.html', context)
+    return render(request, 'core/home.html', context)

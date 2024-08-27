@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
+<h1>{{ car.car_model.name }} ({{ car.year }})</h1>
+<img src="{{ car.image_url }}" alt="{{ car.car_model.name }} image">
+<ul>
+    <li><strong>Brand:</strong> {{ car.car_model.brand.name }}</li>
+    <li><strong>Price:</strong> ${{ car.price }}</li>
+    <li><strong>Engine Size:</strong> {{ car.engine_size }}L</li>
+    <li><strong>Fuel Type:</strong> {{ car.fuel_type }}</li>
+    <li><strong>Gearbox:</strong> {{ car.gearbox }}</li>
+    <li><strong>Color:</strong> {{ car.color }}</li>
+    <li><strong>Mileage:</strong> {{ car.mileage }} km</li>
+    <li><strong>Seats:</strong> {{ car.seats }}</li>
+    <li><strong>Doors:</strong> {{ car.doors }}</li>
+    <li><strong>Body Type:</strong> {{ car.body_type.name }}</li>
+    <li><strong>Availability:</strong> {% if car.is_available %}Available{% else
+        %}Not Available{% endif %}</li>
+    {% if car.is_featured %}
+    <li><strong>Featured Car:</strong> Yes</li>
+    {% endif %}
+</ul>
+<a href="{% url 'car_list' %}">Back to Car List</a>
+{% endblock content %}

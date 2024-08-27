@@ -42,8 +42,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'apps.core.pages.middleware.ThemeMiddleware',
-
-
 ]
 
 ROOT_URLCONF = 'service.urls'
@@ -63,6 +61,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'service.wsgi.application'
 
