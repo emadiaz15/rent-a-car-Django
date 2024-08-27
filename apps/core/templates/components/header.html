@@ -1,10 +1,21 @@
+{% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Rent a Cars</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav" aria-controls="navbarNav"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <!-- Logo que cambiará según el modo, ubicado en el margen superior derecho -->
+        <div class="ms-auto d-flex align-items-center">
+            <img id="logo" src="{% static 'images/modo-oscuro.png' %}"
+                alt="Logo"
+                class="img-fluid" style="height: 40px;">
+            <!-- Interruptor para cambiar el modo de tema (Oscuro/Claro) -->
+            <div class="form-check form-switch ms-3">
+                <input type="checkbox" id="theme-Toggle"
+                    class="form-check-input">
+            </div>
+            <img id="logo" src="{% static 'images/modo-claro.png' %}"
+                alt="Logo"
+                class="img-fluid" style="height: 40px;">
+        </div>
     </div>
 </nav>

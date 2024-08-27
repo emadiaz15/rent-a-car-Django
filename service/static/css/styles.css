@@ -1,20 +1,11 @@
-.dark-theme {
-    background-color: #121212;
-    color: #ffffff;
+/* Tema claro */
+body.light {
+    background-color: white;
+    color: black;
 }
 
-.light-theme {
-    background-color: #ffffff;
-    color: #000000;
+/* Tema oscuro */
+body.dark {
+    background-color: black;
+    color: white;
 }
-
-.dark-theme .bg-light {
-    background-color: #343a40 !important;
-    color: #ffffff !important;
-}
-
-.light-theme .bg-light {
-    background-color: #f8f9fa !important;
-    color: #000000 !important;
-}
-

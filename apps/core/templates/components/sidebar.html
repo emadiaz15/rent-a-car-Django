@@ -1,14 +1,26 @@
+{% load static %}
 <div class="d-flex flex-column p-3 bg-light" id="sidebar">
-    <button class="btn btn-primary d-lg-none mb-3" id="toggleSidebar">
-        ☰ Menu
-    </button>
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="mb-0">Menu</h4>
+    <div class="d-flex justify-content-between align-items-center mb-2">
         <div>
-            <input type="checkbox" id="themeToggle" class="form-check-input">
-            <label for="themeToggle" class="form-check-label">Dark Mode</label>
+            <!-- Botón desplegable para mostrar/ocultar el menú en pantallas pequeñas -->
+            <div class="dropdown d-lg-none mb-2">
+                <button class="btn btn-primary dropdown-toggle" type="button"
+                    id="dropdownMenuButton" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    ☰ Menu
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Home</a></li>
+                    <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="#">Orders</a></li>
+                    <li><a class="dropdown-item" href="#">Products</a></li>
+                    <li><a class="dropdown-item" href="#">Customers</a></li>
+                </ul>
+            </div>
         </div>
     </div>
+
+    <!-- Menú de navegación visible en pantallas grandes -->
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
             <a href="#" class="nav-link active">

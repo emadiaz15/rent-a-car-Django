@@ -1,4 +1,9 @@
 from django.shortcuts import render
 
 def home_view(request):
-    return render(request, 'home.html')
+    theme = request.COOKIES.get('theme', 'light')
+    context = {
+        'theme': theme,
+        # otros contextos
+    }
+    return render(request, 'home.html', context)
