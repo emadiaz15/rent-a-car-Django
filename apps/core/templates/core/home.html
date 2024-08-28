@@ -6,11 +6,11 @@
 
 {% block content %}
 <div class="container">
+    {% include 'components/carousel.html' %}
     <h2 class="mt-5">Welcome to Rent a Cars</h2>
     <p>This is the home page content.</p>
-</div>
-{% endblock %}
+    {% endblock %}
 
-{% block scripts %}
-<script src='{% static "js/core.js" %}'></script>
-{% endblock %}
+    {% block scripts %}
+    <script src='{% static "js/core.js" %}'></script>
+    {% endblock %}

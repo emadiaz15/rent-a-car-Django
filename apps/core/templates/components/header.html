@@ -1,21 +1,28 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg" id="site-header">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Rent a Cars</a>
-        <!-- Logo que cambiará según el modo, ubicado en el margen superior derecho -->
+        <a class="navbar-brand" href="{% url 'home' %}" id="navbar-brand">Rent a
+            Cars</a>
+        <!-- Logos para temas claro y oscuro -->
         <div class="ms-auto d-flex align-items-center">
-            <img id="logo" src="{% static 'images/modo-oscuro.png' %}"
-                alt="Logo"
-                class="img-fluid" style="height: 40px;">
+            <!-- Logo para el modo oscuro -->
+            <img id="logo-dark" src="{% static 'images/modo-oscuro.png' %}"
+                alt="Logo Oscuro" class="img-fluid"
+                style="height: 40px; cursor: pointer; opacity: 0.5;">
             <!-- Interruptor para cambiar el modo de tema (Oscuro/Claro) -->
             <div class="form-check form-switch ms-3">
-                <input type="checkbox" id="theme-Toggle"
+                <input type="checkbox" id="theme-toggle"
                     class="form-check-input">
             </div>
-            <img id="logo" src="{% static 'images/modo-claro.png' %}"
-                alt="Logo"
-                class="img-fluid" style="height: 40px;">
+            <!-- Logo para el modo claro -->
+            <img id="logo-light" src="{% static 'images/modo-claro.png' %}"
+                alt="Logo Claro" class="img-fluid"
+                style="height: 40px; cursor: pointer; opacity: 1;">
         </div>
     </div>
 </nav>
+
+{% block scripts %}
+<script src='{% static "js/core.js" %}'></script>
+{% endblock %}

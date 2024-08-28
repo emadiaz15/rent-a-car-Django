@@ -1,11 +1,91 @@
-/* Tema claro */
-body.light {
-    background-color: white;
-    color: black;
+/* General Styles for Navbar */
+.navbar {
+    padding-top: 30px; /* Adjust the padding to separate the menu from the header */
 }
 
-/* Tema oscuro */
+.navbar-toggler {
+    margin-bottom: 15px; /* Additional space below the toggle button */
+}
+
+/* Menu Button Styles */
+.navbar-nav .nav-link.btn {
+    text-align: left; /* Align text to the left */
+    padding: 10px 20px; /* Increase padding */
+    border-radius: 0; /* Remove rounded borders for a uniform look */
+}
+
+/* Vertical Menu Styles */
+.navbar-nav.flex-column .nav-link {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-nav.flex-column .nav-link:last-child {
+    border-bottom: none;
+}
+
+/* Light Theme Styles */
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light .navbar {
+    background-color: #f8f9fa;
+}
+
+body.light .navbar-light {
+    background-color: #f8f9fa !important;
+    color: #000000;
+}
+
+body.light .navbar-light .navbar-brand,
+body.light .navbar-light .navbar-nav .nav-link,
+body.light .navbar-nav .nav-link.btn {
+    color: #000000;
+    background-color: #e9ecef;
+}
+
+body.light .navbar-light .navbar-nav .nav-link.btn:hover {
+    background-color: #dee2e6;
+    color: #000000;
+}
+
+/* Dark Theme Styles */
 body.dark {
-    background-color: black;
-    color: white;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark .navbar {
+    background-color: #333333 !important;
+    color: #ffffff;
+}
+
+body.dark .navbar-dark {
+    background-color: #333333 !important;
+    color: #ffffff;
+}
+
+body.dark .navbar-dark .navbar-brand,
+body.dark .navbar-dark .navbar-nav .nav-link,
+body.dark .navbar-nav .nav-link.btn {
+    color: #ffffff;
+    background-color: #444444;
+}
+
+body.dark .navbar-dark .navbar-nav .nav-link.btn:hover {
+    background-color: #555555;
+    color: #ffffff;
+}
+
+body.dark .text-light {
+    color: #ffffff !important;
+}
+
+/* Optional: Change background color for small screens */
+@media (max-width: 992px) {
+    .navbar {
+        background-color: #f8f9fa;
+    }
 }

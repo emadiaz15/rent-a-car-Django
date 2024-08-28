@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -18,29 +17,33 @@
     </head>
     <body class="{{ request.COOKIES.theme|default:'light' }}">
 
-        <!-- Header (included from components) -->
-        {% include 'components/header.html' %}
+        <!-- Header (incluido de componentes) -->
+        <header class="site-header">
+            {% include 'components/header.html' %}
+        </header>
 
         <div class="container-fluid">
             <div class="row">
-                <!-- Sidebar (included from components) -->
-                <div class="col-md-3">
+                <!-- Sidebar (incluido de componentes) -->
+                <div class="col-md-2">
                     {% include 'components/sidebar.html' %}
                 </div>
 
-                <!-- Main content area -->
+                <!-- Área principal de contenido -->
                 <div class="col-md-9">
                     {% block content %}
-                    <!-- Main content goes here -->
+                    <!-- El contenido principal va aquí -->
                     {% endblock %}
                 </div>
             </div>
         </div>
 
-        <!-- Footer (included from components) -->
-        {% include 'components/footer.html' %}
+        <!-- Footer (incluido de componentes) -->
+        <footer class="site-footer">
+            {% include 'components/footer.html' %}
+        </footer>
 
-        <!-- Bootstrap JS and dependencies -->
+        <!-- Bootstrap JS y dependencias -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script
@@ -52,3 +55,5 @@
         <!-- Additional scripts -->
         {% block scripts %}
         {% endblock %}
+    </body>
+</html>

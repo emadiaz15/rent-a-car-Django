@@ -1,51 +1,38 @@
 {% load static %}
-<div class="d-flex flex-column p-3 bg-light" id="sidebar">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-        <div>
-            <!-- Botón desplegable para mostrar/ocultar el menú en pantallas pequeñas -->
-            <div class="dropdown d-lg-none mb-2">
-                <button class="btn btn-primary dropdown-toggle" type="button"
-                    id="dropdownMenuButton" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    ☰ Menu
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">Home</a></li>
-                    <li><a class="dropdown-item" href="#">Cars</a></li>
-                    <li><a class="dropdown-item" href="#">Orders</a></li>
-                    <li><a class="dropdown-item" href="#">Products</a></li>
-                    <li><a class="dropdown-item" href="#">Customers</a></li>
-                </ul>
-            </div>
+
+<nav class="navbar navbar-expand-lg mb-2" id="site-navbar">
+    <div class="container-fluid">
+        <button class="navbar-toggler btn btn-primary" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            ☰ Menu
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link btn mb-2" href="#" id="nav-home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn mb-2" href="#" id="nav-cars">Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn mb-2" href="#"
+                        id="nav-orders">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn mb-2" href="#"
+                        id="nav-products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="#"
+                        id="nav-customers">Customers</a>
+                </li>
+            </ul>
         </div>
     </div>
+</nav>
 
-    <!-- Menú de navegación visible en pantallas grandes -->
-    <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-            <a href="#" class="nav-link active">
-                Home
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link">
-                Dashboard
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link">
-                Orders
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link">
-                Products
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link">
-                Customers
-            </a>
-        </li>
-    </ul>
-</div>
+{% block scripts %}
+<script src='{% static "js/sidebar.js" %}'></script>
+{% endblock %}
