@@ -1,10 +1,11 @@
 {% extends "core/base.html" %}
 {% load static %}
 {% block content %}
-<h1>{{ car.car_model.name }} ({{ car.year }})</h1>
+<h1>{{ car.car_model.name }}</h1>
 <img src="{{ car.image_url }}" alt="{{ car.car_model.name }} image">
 <ul>
     <li><strong>Brand:</strong> {{ car.car_model.brand.name }}</li>
+    <li><strong>Year:</strong> {{ car.year}} </li>
     <li><strong>Price:</strong> ${{ car.price }}</li>
     <li><strong>Engine Size:</strong> {{ car.engine_size }}L</li>
     <li><strong>Fuel Type:</strong> {{ car.fuel_type }}</li>
@@ -20,5 +21,5 @@
     <li><strong>Featured Car:</strong> Yes</li>
     {% endif %}
 </ul>
-<a href="{% url 'car_list' %}">Back to Car List</a>
+<a href="{% url 'car_list_view' %}">Back to Car List</a>
 {% endblock content %}

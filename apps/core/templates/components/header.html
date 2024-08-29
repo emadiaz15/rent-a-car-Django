@@ -19,6 +19,14 @@
             <img id="logo-light" src="{% static 'images/modo-claro.png' %}"
                 alt="Logo Claro" class="img-fluid"
                 style="height: 40px; cursor: pointer; opacity: 1;">
+
+            <!-- Botones de Login y Register -->
+            <div class="ms-4">
+                <a href="{% url 'login' %}"
+                    class="btn btn-outline-primary me-2">Login</a>
+                <a href="{% url 'register' %}"
+                    class="btn btn-primary">Register</a>
+            </div>
         </div>
     </div>
 </nav>

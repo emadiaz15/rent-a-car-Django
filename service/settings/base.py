@@ -23,12 +23,15 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_APPS = []
+THIRD_APPS = [
+    'simple_history',
+]
 
 LOCAL_APPS = [
     'apps.cars',
     'apps.core',
     'apps.users',
+    'apps.reservations',
 ]
 
 INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
@@ -95,3 +98,5 @@ STATICFILES_DIRS = ["service/static"]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'

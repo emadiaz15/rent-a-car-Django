@@ -1,6 +1,38 @@
 {% extends "core/base.html" %}
 {% load static %}
 {% block content %}
+
+<form method="GET">
+    <div class="form-group">
+        {{ form.brand.label_tag }} {{ form.brand }}
+    </div>
+    <div class="form-group">
+        {{ form.model.label_tag }} {{ form.model }}
+    </div>
+    <div class="form-group">
+        {{ form.body_type.label_tag }} {{ form.body_type }}
+    </div>
+    <div class="form-group">
+        {{ form.year.label_tag }} {{ form.year }}
+    </div>
+    <div class="form-group">
+        {{ form.price_min.label_tag }} {{ form.price_min }}
+    </div>
+    <div class="form-group">
+        {{ form.price_max.label_tag }} {{ form.price_max }}
+    </div>
+    <div class="form-group">
+        {{ form.fuel_type.label_tag }} {{ form.fuel_type }}
+    </div>
+    <div class="form-group">
+        {{ form.gearbox.label_tag }} {{ form.gearbox }}
+    </div>
+    <div class="form-group">
+        {{ form.color.label_tag }} {{ form.color }}
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+
 <h1>Available Cars</h1>
 <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for car in cars %}
@@ -9,8 +41,9 @@
             <img src="{{ car.image_url }}" class="card-img-top"
                 alt="{{ car.car_model.name }}">
             <div class="card-body">
-                <h5 class="card-title">{{ car.car_model.name }} ({{ car.year
-                    }})</h5>
+                <h5 class="card-title">
+                    {{ car.car_model.name }} {{ car.year }}
+                </h5>
                 <p class="card-text">
                     <strong>Brand:</strong> {{ car.car_model.brand.name }}<br>
                     <strong>Price:</strong> ${{ car.price }}<br>
@@ -19,7 +52,7 @@
                     <strong>Gearbox:</strong> {{ car.gearbox }}<br>
                     <strong>Color:</strong> {{ car.color }}
                 </p>
-                <a href="{% url 'car_detail' car_id=car.id %}"
+                <a href="{% url 'car_detail_view' car_id=car.id %}"
                     class="btn btn-primary">View Details</a>
             </div>
         </div>

@@ -11,22 +11,25 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link btn mb-2" href="#" id="nav-home">Home</a>
+                    <a class="nav-link btn mb-2" href="{% url 'home' %}"
+                        id="nav-home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn mb-2" href="#" id="nav-cars">Cars</a>
+                    <a class="nav-link btn mb-2"
+                        href="{% url 'car_list_view' %}" id="nav-cars">Cars</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link btn mb-2" href="#"
+                        id="nav-orders">Reservations</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link btn mb-2" href="#"
-                        id="nav-orders">Orders</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn mb-2" href="#"
-                        id="nav-products">Products</a>
+                        id="nav-products">Contacts</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link btn" href="#"
-                        id="nav-customers">Customers</a>
+                        id="nav-customers">About us</a>
                 </li>
             </ul>
         </div>
@@ -34,5 +37,5 @@
 </nav>
 
 {% block scripts %}
-<script src='{% static "js/sidebar.js" %}'></script>
+<script src='{% static "js/core.js" %}'></script>
 {% endblock %}
