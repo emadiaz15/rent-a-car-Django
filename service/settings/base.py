@@ -24,8 +24,8 @@ BASE_APPS = [
 ]
 
 THIRD_APPS = [
-    'simple_history',
-]
+     'simple_history',
+     ]
 
 LOCAL_APPS = [
     'apps.cars',
@@ -45,6 +45,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'apps.core.pages.middleware.ThemeMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'service.urls'
@@ -100,3 +101,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+
+LOGIN_URL = '/auth/login/'  # Asegúrate de que esta URL coincida con la ruta de tu página de login
+
+LOGIN_REDIRECT_URL = '/home'  # Redirige al home después del login
+LOGOUT_REDIRECT_URL = '/'  # Redirige al home después del logout

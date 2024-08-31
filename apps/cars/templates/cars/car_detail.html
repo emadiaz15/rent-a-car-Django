@@ -15,11 +15,27 @@
     <li><strong>Seats:</strong> {{ car.seats }}</li>
     <li><strong>Doors:</strong> {{ car.doors }}</li>
     <li><strong>Body Type:</strong> {{ car.body_type.name }}</li>
-    <li><strong>Availability:</strong> {% if car.is_available %}Available{% else
-        %}Not Available{% endif %}</li>
+    <li><strong>Availability:</strong>
+        {% if car.is_available %}
+        Available
+        {% else %}
+        Not Available
+        {% endif %}
+    </li>
     {% if car.is_featured %}
     <li><strong>Featured Car:</strong> Yes</li>
     {% endif %}
 </ul>
-<a href="{% url 'car_list_view' %}">Back to Car List</a>
+
+<!-- Botón de reserva -->
+{% if car.is_available %}
+<a href="{% url 'reservations:reservation_create' car.id %}"
+    class="btn btn-primary mt-3">Reserve</a>
+{% else %}
+<button class="btn btn-secondary mt-3" disabled>Not Available for
+    Reservation</button>
+{% endif %}
+
+<a href="{% url 'car_list_view' %}" class="btn btn-link mt-3">Back to Car
+    List</a>
 {% endblock content %}

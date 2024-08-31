@@ -1,0 +1,35 @@
+{% block content %}
+<h1>All Reservations</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Car</th>
+            <th>Customer</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.car.car_model.name }} ({{ reservation.car.year
+                }})</td>
+            <td>{{ reservation.customer.first_name }} {{
+                reservation.customer.last_name }}</td>
+            <td>{{ reservation.start_date }}</td>
+            <td>{{ reservation.end_date }}</td>
+            <td>${{ reservation.total_price }}</td>
+            <td>{{ reservation.get_status_display }}</td>
+            <td>
+                <a
+                    href="{% url 'reservations:reservation_detail' reservation.id %}"
+                    class="btn btn-info btn-sm">View Details</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

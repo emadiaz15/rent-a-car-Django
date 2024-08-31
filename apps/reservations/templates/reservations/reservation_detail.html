@@ -1,0 +1,19 @@
+{% block content %}
+<h1>Reservation Details</h1>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ reservation.car.car_model.name }} ({{
+            reservation.car.year }})</h5>
+        <p class="card-text">
+            <strong>Customer:</strong> {{ reservation.customer.first_name }} {{
+            reservation.customer.last_name }}<br>
+            <strong>Start Date:</strong> {{ reservation.start_date }}<br>
+            <strong>End Date:</strong> {{ reservation.end_date }}<br>
+            <strong>Total Price:</strong> ${{ reservation.total_price }}<br>
+            <strong>Status:</strong> {{ reservation.get_status_display }}
+        </p>
+    </div>
+</div>
+<a href="{% url 'reservations:reservation_list' %}"
+    class="btn btn-primary mt-3">Back to Reservations List</a>
+{% endblock %}

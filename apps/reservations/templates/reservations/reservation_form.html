@@ -1,0 +1,30 @@
+{% block content %}
+<h1>Reserve {{ car.car_model.name }} ({{ car.year }})</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="id_start_date" class="form-label">Start Date</label>
+        <input type="datetime-local" name="start_date" class="form-control"
+            id="id_start_date" required>
+    </div>
+    <div class="mb-3">
+        <label for="id_end_date" class="form-label">End Date</label>
+        <input type="datetime-local" name="end_date" class="form-control"
+            id="id_end_date" required>
+    </div>
+    <div class="mb-3">
+        <label for="id_customer_id" class="form-label">Customer</label>
+        <select name="customer_id" id="id_customer_id" class="form-select"
+            required>
+            {% for customer in customers %}
+            <option value="{{ customer.id }}">{{ customer.first_name }} {{
+                customer.last_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Confirm Reservation</button>
+</form>
+{% if error_message %}
+<div class="alert alert-danger mt-3">{{ error_message }}</div>
+{% endif %}
+{% endblock %}

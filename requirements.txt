@@ -1,3 +1,10 @@
-Django==5.1
-nanoid==2.0.0
 Django-simple-history==3.4.0
+Django==5.1
+Pillow
+django-allauth
+django-cors-headers
+djangorestframework
+gunicorn
+mysqlclient
+nanoid==2.0.0
+requests
