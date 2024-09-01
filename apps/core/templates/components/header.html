@@ -1,34 +1,44 @@
 {% load static %}
 
 <nav class="navbar navbar-expand-lg" id="site-header">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}" id="navbar-brand">Rent a
-            Cars</a>
-        <!-- Logos para temas claro y oscuro -->
-        <div class="ms-auto d-flex align-items-center">
-            <!-- Logo para el modo oscuro -->
-            <img id="logo-dark" src="{% static 'images/modo-oscuro.png' %}"
-                alt="Logo Oscuro" class="img-fluid"
-                style="height: 40px; cursor: pointer; opacity: 0.5;">
-            <!-- Interruptor para cambiar el modo de tema (Oscuro/Claro) -->
-            <div class="form-check form-switch ms-3">
-                <input type="checkbox" id="theme-toggle"
-                    class="form-check-input">
-            </div>
-            <!-- Logo para el modo claro -->
-            <img id="logo-light" src="{% static 'images/modo-claro.png' %}"
-                alt="Logo Claro" class="img-fluid"
-                style="height: 40px; cursor: pointer; opacity: 1;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'core:home' %}" id="navbar-brand"
+      >Rent a Cars</a
+    >
+    <!-- Logos para temas claro y oscuro -->
+    <div class="ms-auto d-flex align-items-center">
+      <!-- Logo para el modo oscuro -->
+      <img
+        id="logo-dark"
+        src="{% static 'images/modo-oscuro.png' %}"
+        alt="Logo Oscuro"
+        class="img-fluid"
+        style="height: 40px; cursor: pointer; opacity: 0.5"
+      />
+      <!-- Interruptor para cambiar el modo de tema (Oscuro/Claro) -->
+      <div class="form-check form-switch ms-3">
+        <input type="checkbox" id="theme-toggle" class="form-check-input" />
+      </div>
+      <!-- Logo para el modo claro -->
+      <img
+        id="logo-light"
+        src="{% static 'images/modo-claro.png' %}"
+        alt="Logo Claro"
+        class="img-fluid"
+        style="height: 40px; cursor: pointer; opacity: 1"
+      />
 
-            <!-- Botones de Login y Register -->
-            <div class="ms-4">
-                <a href="{% url 'login' %}"
-                    class="btn btn-outline-primary me-2">Login</a>
-                <a href="{% url 'register' %}"
-                    class="btn btn-primary">Register</a>
-            </div>
-        </div>
+      <!-- Botones de Login y Register -->
+      <div class="ms-4">
+        <a href="{% url 'users:login' %}" class="btn btn-outline-primary me-2"
+          >Login</a
+        >
+        <a href="{% url 'users:register' %}" class="btn btn-primary"
+          >Register</a
+        >
+      </div>
     </div>
+  </div>
 </nav>
 
 {% block scripts %}

@@ -51,7 +51,7 @@ class Car(models.Model):
     body_type = models.ForeignKey(BodyType, on_delete=models.CASCADE)  # Relación con el tipo de carrocería, si se elimina, se eliminan los autos asociados
     price = models.DecimalField(max_digits=10, decimal_places=2)  # Precio del auto, con hasta 10 dígitos y 2 decimales
     engine_size = models.DecimalField(max_digits=10, decimal_places=1)  # Tamaño del motor, con hasta 10 dígitos y 1 decimal
-    image_url = models.URLField(max_length=200)  # URL de la imagen del auto, con longitud máxima de 200 caracteres
+    image_url = models.CharField(max_length=200)  # URL de la imagen del auto, con longitud máxima de 200 caracteres
     gearbox = models.CharField(max_length=50)  # Tipo de caja de cambios, con longitud máxima de 50 caracteres
     fuel_type = models.CharField(max_length=50)  # Tipo de combustible, con longitud máxima de 50 caracteres
     color = models.CharField(max_length=50)  # Color del auto, con longitud máxima de 50 caracteres

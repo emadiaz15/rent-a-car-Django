@@ -25,6 +25,7 @@ BASE_APPS = [
 
 THIRD_APPS = [
      'simple_history',
+     'django_extensions',
      ]
 
 LOCAL_APPS = [

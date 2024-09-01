@@ -7,3 +7,11 @@ def home_view(request):
         # otros contextos
     }
     return render(request, 'core/home.html', context)
+
+def contact_view(request):
+    theme = request.COOKIES.get('theme', 'light')
+    context = {
+        'theme': theme,
+        # otros contextos
+    }
+    return render(request, 'core/contact.html', context)

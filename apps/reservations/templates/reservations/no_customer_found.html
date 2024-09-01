@@ -1,0 +1,11 @@
+<!-- templates/reservations/no_customer_found.html -->
+{% extends 'core/base.html' %} {% block content %}
+<div class="container">
+  <h1>No Customer Profile Found</h1>
+  <p>
+    It seems there is no customer profile associated with your account. Please
+    contact support or update your profile information.
+  </p>
+  <a href="{% url 'core:home' %}" class="btn btn-primary">Go to Home</a>
+</div>
+{% endblock %}

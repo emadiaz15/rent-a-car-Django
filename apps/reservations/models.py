@@ -1,7 +1,9 @@
+from django.conf import settings
 from django.db import models
 from apps.cars.models import Car  # Importa el modelo Car desde la aplicación Cars
 
 class Customer(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)  # Relación con el modelo User
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)

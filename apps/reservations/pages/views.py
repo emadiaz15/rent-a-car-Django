@@ -1,9 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse
 from apps.reservations.models import Reservation, Customer
 from apps.cars.models import Car
+from django.urls import reverse
 from django.utils import timezone
-from django.db.models import Q
 
 @login_required
 def reservation_create(request, car_id):
@@ -25,7 +26,11 @@ def reservation_create(request, car_id):
         
         if overlapping_reservations.exists():
             error_message = "The car is not available for the selected dates."
-            return render(request, 'reservations/reservation_form.html', {'car': car, 'customers': Customer.objects.all(), 'error_message': error_message})
+            return render(request, 'reservations/reservation_form.html', {
+                'car': car, 
+                'customers': Customer.objects.all(), 
+                'error_message': error_message
+            })
 
         # Si no hay conflictos, crear la reserva
         reservation = Reservation.objects.create(
@@ -38,7 +43,10 @@ def reservation_create(request, car_id):
         )
         return redirect('reservations:reservation_detail', reservation_id=reservation.id)
     
-    return render(request, 'reservations/reservation_form.html', {'car': car, 'customers': Customer.objects.all()})
+    return render(request, 'reservations/reservation_form.html', {
+        'car': car, 
+        'customers': Customer.objects.all()
+    })
 
 @login_required
 def reservation_detail(request, reservation_id):
@@ -47,5 +55,23 @@ def reservation_detail(request, reservation_id):
 
 @login_required
 def reservation_list(request):
-    reservations = Reservation.objects.all().order_by('-start_date')
+    # Asegúrate de que el usuario esté autenticado
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (reverse('login'), request.path))
+    
+    try:
+        # Verifica si existe un perfil de cliente asociado al usuario autenticado
+        customer = Customer.objects.get(user=request.user)
+    except Customer.DoesNotExist:
+        # Si no existe el perfil de cliente, renderiza la página de no_customer_found
+        return render(request, 'reservations/no_customer_found.html', status=404)
+
+    # Obtén todas las reservas asociadas al cliente
+    reservations = Reservation.objects.filter(customer=customer).order_by('-start_date')
+    
+    # Si no hay reservas, redirige a la página no_customer_found
+    if not reservations.exists():
+        return render(request, 'reservations/no_customer_found.html', status=404)
+
+    # Si hay reservas, renderiza la lista de reservas
     return render(request, 'reservations/reservation_list.html', {'reservations': reservations})
